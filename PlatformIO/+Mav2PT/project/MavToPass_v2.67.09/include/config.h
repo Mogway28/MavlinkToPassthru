@@ -43,8 +43,8 @@ v2.67.09  2021-12-10   No web input fields for BT if BT not compiled in. (PR by 
 //#define FrSky_Port_Type 0   // No FrSky Port support needed. Now I'm a "Mavlink Switch"
 //#define FrSky_Port_Type 1   // F.Port v1
 //#define FrSky_Port_Type 2   // F.Port v2 FrSky ISRM/ACCESS capable transmitters and receivers only
-#define FrSky_Port_Type 3   // S.Port / legacy
-//#define FrSky_Port_Type 4   // Auto detect
+//#define FrSky_Port_Type 3   // S.Port / legacy
+#define FrSky_Port_Type 4   // Auto detect
 
 
 #define Device_sysid     251                     // Our Mavlink Identity - APM FC is 1, Mission Planner is 255, QGC default is 0 
@@ -64,9 +64,9 @@ v2.67.09  2021-12-10   No web input fields for BT if BT not compiled in. (PR by 
 //           D E F A U L T   T R A N S L A T I O N   M O D E   S E T T I N G S   
 //=================================================================================================       
 // Choose only one of these three translation modes
-#define Ground_Mode          // Translator between Taranis et al and LRS transceiver (like Dragonlink, ULRS, RFD900...)
+//#define Ground_Mode          // Translator between Taranis et al and LRS transceiver (like Dragonlink, ULRS, RFD900...)
 //#define Air_Mode             // Translator between FrSky receiver (like XRS) and Flight Controller (like Pixhawk)
-//#define Relay_Mode           // Translator between LRS tranceiver (like Dragonlink) and FrSky receiver (like XRS) in relay box on the ground
+#define Relay_Mode           // Translator between LRS tranceiver (like Dragonlink) and FrSky receiver (like XRS) in relay box on the ground
 
 
 //=================================================================================================
@@ -132,15 +132,15 @@ v2.67.09  2021-12-10   No web input fields for BT if BT not compiled in. (PR by 
 //#define ESP32_Variant     2    //  Wemos® LOLIN ESP32-WROOM-32_OLED_Dual_26p
 //#define ESP32_Variant     3    //  Dragonlink V3 slim with internal ESP32 - contributed by Noircogi - Select ESP32 Dev Board in IDE
 //#define ESP32_Variant     4    //  Heltec Wifi Kit 32 - Use Partition Scheme: "Minimal SPIFFS(Large APPS with OTA)" - contributed by Noircogi select Heltec wifi kit
-#define ESP32_Variant     5    //  LILYGO® TTGO T-Display ESP32 1.14" ST7789 Colour LCD (135 x 240) - Select TTGO_T1 in IDE
+//#define ESP32_Variant     5    //  LILYGO® TTGO T-Display ESP32 1.14" ST7789 Colour LCD (135 x 240) - Select TTGO_T1 in IDE
 //#define ESP32_Variant     6    //  LILYGO® TTGO T2 SD SSD1331 TFT Colour 26pin - 16Ch x 8 lines (96 x 64)- Select ESP32 Dev Board in IDE
 //#define ESP32_Variant     7    //  ESP32 Dev Board with separate ILI9341 2.8" COLOUR TFT SPI 240x320 V1.2  select Dev Board in IDE
 
-#define RP2040_Variant     1    //  Raspberry pi pico  select Raspberry Pi RP2040 Boards in Arduino IDE
+//#define RP2040_Variant     1    //  Raspberry pi pico  select Raspberry Pi RP2040 Boards in Arduino IDE
 
 //#define ESP8266_Variant   1   // NodeMCU ESP 12F - choose "NodeMCU 1.0(ESP-12E)" board in the IDE
-#define ESP8266_Variant   2   // ESP-12E, ESP-F barebones boards. RFD900X TX-MOD, QLRS et al - use Generic ESP8266 on IDE
-//#define ESP8266_Variant   3   // ESP-12F - Wemos® LOLIN D1 Mini
+//#define ESP8266_Variant   2   // ESP-12E, ESP-F barebones boards. RFD900X TX-MOD, QLRS et al - use Generic ESP8266 on IDE
+#define ESP8266_Variant   3   // ESP-12F - Wemos® LOLIN D1 Mini
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
@@ -169,8 +169,8 @@ v2.67.09  2021-12-10   No web input fields for BT if BT not compiled in. (PR by 
 #define STApw                "password"         // Target AP password (in STA mode). Must be >= 8 chars      
 
 // Choose one default mode for ESP only - AP means advertise as an access point (hotspot). STA means connect to a known host
-//#define WiFi_Mode   1  //AP
-#define WiFi_Mode   2  // STA
+#define WiFi_Mode   1  //AP
+//#define WiFi_Mode   2  // STA
 //#define WiFi_Mode   3  // (STA>AP) STA failover to AP
 
 // Choose one default protocol - for ESP32 only
@@ -1158,7 +1158,7 @@ bool daylightSaving = false;
       #include <ESP8266WiFi.h>   // Includes AP class
       #if defined webSupport
         #include <ESP8266WebServer.h>  
-        #include <ESPmDNS.h>  
+        #include <ESP8266mDNS.h>  
         ESP8266WebServer server(80);  
         #include <WiFiUdp.h>       
       #endif      
